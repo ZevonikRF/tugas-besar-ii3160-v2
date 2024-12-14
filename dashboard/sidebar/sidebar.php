@@ -59,7 +59,7 @@
     <div class="container">
         <a class="title" href="./dashboard.php">Cafe ABC Dashboard</a>
         <ul class="menu__list">Menus
-            <li><a class="list" href="">Tables</a></li>
+            <li><a class="list" href="./tables/tables.php">Tables</a></li>
             <li><a class="list" href="">Queue</a></li>
         </ul>
         <ul class="menu__list">Users
