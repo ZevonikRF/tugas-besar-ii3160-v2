@@ -8,7 +8,7 @@ Coming Soon >∇<
 18221027 Muhammad Rifky Fachrizain
 
 ### SIDENOTE
-Proyek dipindahkan dari repo [sebelumnya]https://github.com/ZevonikRF/tugas-besar-ii3160. dikarenakan ada masalah integrasi
+Proyek dipindahkan dari repo [sebelumnya](https://github.com/ZevonikRF/tugas-besar-ii3160) dikarenakan ada masalah integrasi
 
 Proyek ini akan menggunakan bahasa PHP.
 
