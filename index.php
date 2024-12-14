@@ -33,13 +33,15 @@
             margin-top: 20px;
             background-color: white;
             font-weight: bold;
+            text-decoration: none;
+            color:black;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Cafe ABC Dashboard</div>
-        <a href="login/login.php">Login</a>
+        <a href="login/login.php">Start</a>
     </div>
 </body>
 </html>
