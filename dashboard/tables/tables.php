@@ -14,7 +14,6 @@
         }
         body{
             background-color: var(--background);
-           
         }
         .container{
             display: flex;
@@ -22,17 +21,6 @@
             /* height: 100vh; */
             margin: 0;
             padding: 0;
-        }
-        .sidebarcontent {
-            height: 100vh;
-            width: 430px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: var(--backgroundSd);
-            overflow-x: hidden;
-            /* padding-top: 20px; */
         }
     </style>
 </head>
