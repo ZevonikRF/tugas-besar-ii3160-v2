@@ -1,3 +1,24 @@
+<?php
+    include "./../db.php";
+
+    if (isset($_POST['logging'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        // echo "Tombol Dipencet";
+        // echo $username;
+
+        $sql = "SELECT * FROM account WHERE username='$username' AND password='$password'";
+        $result = $db->query($sql);
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            header("location: ../dashboard/dashboard.php");
+        }
+        else {
+            echo "Akun tidak ditemukan";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,12 +75,18 @@
             text-align: center;
             text-decoration: none;
         }
+        form button{
+            padding: 30px;
+            background-color: brown;
+            border: none;
+            color: var(--text);
+        }
 
     </style>
 </head>
 <body>
     <div class="container">
-        <form action="">
+        <form action="login.php" method="POST">
             <!-- Title -->
             <div class="title__container">
                 <div class="title">Cafe ABC Dashboard</div>
@@ -68,8 +95,10 @@
             <input type="text" placeholder="username" name="username" required />
             <input type="password" placeholder="password" name="password" required />
             <!-- Button -->
-            <a href="../dashboard/dashboard.php">Login</a>
+            <!-- <a href="" name="logging">Login</a> -->
+            <button type="submit" name="logging">Login</button>
         </form>
     </div>
 </body>
 </html>
+<!-- ../dashboard/dashboard.php  -->
