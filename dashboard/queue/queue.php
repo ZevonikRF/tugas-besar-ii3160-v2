@@ -72,7 +72,7 @@
             </tbody>
         </table>
         <div class="button__container">
-            <a href="/add/add.php" class="button__add">Tambah Antrian</a>
+            <a href="./add/add.php" class="button__add">Tambah Antrian</a>
         </div>  
     </div>
 </body>
