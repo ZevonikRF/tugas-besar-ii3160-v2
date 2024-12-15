@@ -1,3 +1,16 @@
+<?php
+    if (isset($_POST["is_login"])) {
+        header("location: ./../login/login.php"); 
+    }
+    // if (isset($_POST['logout'])) {
+    //     $_SESSION["is_login"] = false;
+    //     session_unset();
+    //     session_destroy(); 
+    //     header("location: ./../login/login.php"); 
+    //     exit();
+    // }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,6 +67,7 @@
             background-color: var(--backgroundHov);
         }
 
+        
     </style>
 <body>
     <div class="container">
@@ -62,9 +76,7 @@
             <li><a class="list" href="tables.php">Tables</a></li>
             <li><a class="list" href="queue.php">Queue</a></li>
         </ul>
-        <ul class="menu__list">Users
-            <li><a class="list" href="../login/login.php">Logout</a></li>
-        </ul>
+        <div>Logged in as <?= $_SESSION["username"]?></div>
     </div>
 </body>
 </html>

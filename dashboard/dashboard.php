@@ -1,3 +1,19 @@
+<?php
+    session_start();
+    
+    if (isset($_POST["is_login"])) {
+        header("location: ./../login/login.php"); 
+    }
+
+    if (isset($_POST['logout'])) {
+        $_SESSION["is_login"] = false;
+        session_unset();
+        session_destroy(); 
+        header("location: ./../login/login.php"); 
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +50,15 @@
             overflow-x: hidden;
             /* padding-top: 20px; */
         }
+        .logout {
+            padding: 10px;
+            margin-top: 10px;
+            margin-left: 140px;
+            background-color: brown;
+            border: none;
+            color: var(---text);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -41,6 +66,9 @@
         <div class="sidebarcontent">
             <?php include "sidebar.php"?>
         </div>
+        <form action="dashboard.php" method="POST">
+            <button type="submit" name="logout" class="logout">Log out</button>
+        </form>
     </div>
 </body>
 </html>

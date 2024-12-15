@@ -1,5 +1,9 @@
 <?php
     include "./../db.php";
+    session_start();
+    if (isset($_SESSION["is_login"])) {
+        header("location: ../dashboard/dashboard.php");
+    }
 
     if (isset($_POST['logging'])) {
         $username = $_POST['username'];
@@ -11,6 +15,8 @@
         $result = $db->query($sql);
         if ($result->num_rows > 0) {
             $data = $result->fetch_assoc();
+            $_SESSION["username"] = $data["username"];
+            $_SESSION["is_login"] = true;
             header("location: ../dashboard/dashboard.php");
         }
         else {
