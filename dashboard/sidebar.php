@@ -57,13 +57,13 @@
     </style>
 <body>
     <div class="container">
-        <a class="title" href="../dashboard.php">Cafe ABC Dashboard</a>
+        <a class="title" href="dashboard.php">Cafe ABC Dashboard</a>
         <ul class="menu__list">Menus
-            <li><a class="list" href="./tables/tables.php">Tables</a></li>
-            <li><a class="list" href="./queue/queue.php">Queue</a></li>
+            <li><a class="list" href="tables.php">Tables</a></li>
+            <li><a class="list" href="queue.php">Queue</a></li>
         </ul>
         <ul class="menu__list">Users
-            <li><a class="list" href="">Logout</a></li>
+            <li><a class="list" href="../login/login.php">Logout</a></li>
         </ul>
     </div>
 </body>

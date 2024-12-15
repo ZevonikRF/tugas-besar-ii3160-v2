@@ -24,44 +24,52 @@
         .tables__header__title{
             font-weight: bold;
         }
-        form input{
-            padding: 15px;
-            background-color: rgb(61, 67, 139);
+        .tables__info{
+            /* width: 100px;    */
+            
+        }
+        .tables__info td{
+            padding: 10px 200px 10px 10px;
+        }
+        .button__ditempati{
+            padding: 10px;
+            background-color: brown;
             border: none;
-            color: white;
-            width: 100%;
         }
-        .button__container{
-            margin-top: 15px;
-        }
-        .button__add{
+        .button__kosong{
             padding: 10px;
             background-color: darkolivegreen;
             border: none;
         }
-        .button__back{
-            padding: 12px;
-            background-color: brown;
-            border: none;
-            text-decoration: none;
-            color: var(---text);
-            margin-left: 10px;
-        }
     </style>
 </head>
 <body>
-    <?php include "./../../dashboard.php"?>
+    <?php include "dashboard.php"?>
     <div class="tables__header">
-        <div class="tables__header__title">Daftar Antrian</div>
+        <div class="tables__header__title">Daftar Meja</div>
     </div>
     <div class="tables__header">
-        <form action="">
-            <input type="text" placeholder="nama penunggu" name="penunggu" required/>
-            <div class="button__container">
-                <button class="button__add">Tambah Penunggu</button>
-                <a href="./../queue.php" class="button__back">Kembali</a>
-            </div>
-        </form>
+        <table class="tables__info">
+            <thead>
+                <tr>
+                    <td>Nomor Meja</td>
+                    <td>Status Meja</td>
+                    <td>Ubah Status</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Meja 01</td>
+                    <td>Kosong</td>
+                    <td>
+                        <form action="">
+                            <button class="button__ditempati">Ditempati</button>
+                            <button class="button__kosong">Kosong</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

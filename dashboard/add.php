@@ -24,56 +24,44 @@
         .tables__header__title{
             font-weight: bold;
         }
-        .tables__info{
-            /* width: 100px;    */
-            
-        }
-        .tables__info td{
-            padding: 10px 200px 10px 10px;
-        }
-        .button__update{
-            padding: 10px;
-            background-color: brown;
+        form input{
+            padding: 15px;
+            background-color: rgb(61, 67, 139);
             border: none;
+            color: white;
+            width: 100%;
+        }
+        .button__container{
+            margin-top: 15px;
         }
         .button__add{
             padding: 10px;
-            margin-top: 10px;
+            background-color: darkolivegreen;
+            border: none;
+        }
+        .button__back{
+            padding: 12px;
             background-color: brown;
             border: none;
             text-decoration: none;
             color: var(---text);
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
-    <?php include "../dashboard.php"?>
+    <?php include "dashboard.php"?>
     <div class="tables__header">
-        <div class="tables__header__title">Daftar Antrian</div>
+        <div class="tables__header__title">Tambah Daftar Antrian</div>
     </div>
     <div class="tables__header">
-        <table class="tables__info">
-            <thead>
-                <tr>
-                    <td>Nomor Antrian</td>
-                    <td>Nama Penunggu</td>
-                    <td>Sudah di Dalam?</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Antrian 1</td>
-                    <td>Mako Hitachi</td>
-                    <td><form action="">
-                            <button class="button__update">Sudah</button>
-                        </form>
-                    </td> 
-                </tr>
-            </tbody>
-        </table>
-        <div class="button__container">
-            <a href="./add/add.php" class="button__add">Tambah Antrian</a>
-        </div>  
+        <form action="">
+            <input type="text" placeholder="nama penunggu" name="penunggu" required/>
+            <div class="button__container">
+                <button class="button__add">Tambah Penunggu</button>
+                <a href="queue.php" class="button__back">Kembali</a>
+            </div>
+        </form>
     </div>
 </body>
 </html>

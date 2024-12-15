@@ -39,7 +39,7 @@
 <body>
     <div class="container">
         <div class="sidebarcontent">
-            <?php include "sidebar/sidebar.php"?>
+            <?php include "sidebar.php"?>
         </div>
     </div>
 </body>

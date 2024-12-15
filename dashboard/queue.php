@@ -31,45 +31,49 @@
         .tables__info td{
             padding: 10px 200px 10px 10px;
         }
-        .button__ditempati{
+        .button__update{
             padding: 10px;
             background-color: brown;
             border: none;
         }
-        .button__kosong{
+        .button__add{
             padding: 10px;
-            background-color: darkolivegreen;
+            margin-top: 10px;
+            background-color: brown;
             border: none;
+            text-decoration: none;
+            color: var(---text);
         }
     </style>
 </head>
 <body>
-    <?php include "../dashboard.php"?>
+    <?php include "dashboard.php"?>
     <div class="tables__header">
-        <div class="tables__header__title">Daftar Meja</div>
+        <div class="tables__header__title">Daftar Antrian</div>
     </div>
     <div class="tables__header">
         <table class="tables__info">
             <thead>
                 <tr>
-                    <td>Nomor Meja</td>
-                    <td>Status Meja</td>
-                    <td>Ubah Status</td>
+                    <td>Nomor Antrian</td>
+                    <td>Nama Penunggu</td>
+                    <td>Sudah di Dalam?</td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Meja 01</td>
-                    <td>Kosong</td>
-                    <td>
-                        <form action="">
-                            <button class="button__ditempati">Ditempati</button>
-                            <button class="button__kosong">Kosong</button>
+                    <td>Antrian 1</td>
+                    <td>Mako Hitachi</td>
+                    <td><form action="">
+                            <button class="button__update">Sudah</button>
                         </form>
-                    </td>
+                    </td> 
                 </tr>
             </tbody>
         </table>
+        <div class="button__container">
+            <a href="add.php" class="button__add">Tambah Antrian</a>
+        </div>  
     </div>
 </body>
 </html>

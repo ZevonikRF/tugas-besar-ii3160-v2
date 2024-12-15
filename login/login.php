@@ -68,7 +68,7 @@
             <input type="text" placeholder="username" name="username" required />
             <input type="password" placeholder="password" name="password" required />
             <!-- Button -->
-            <a href="">Login</a>
+            <a href="../dashboard/dashboard.php">Login</a>
         </form>
     </div>
 </body>
