@@ -1,7 +1,7 @@
 <?php
-    if (isset($_POST["is_login"])) {
-        header("location: ./../login/login.php"); 
-    }
+    // if (isset($_SESSION["is_login"])) {
+    //     header("location: ./../login/login.php"); 
+    // }
     // if (isset($_POST['logout'])) {
     //     $_SESSION["is_login"] = false;
     //     session_unset();
@@ -76,7 +76,7 @@
             <li><a class="list" href="tables.php">Tables</a></li>
             <li><a class="list" href="queue.php">Queue</a></li>
         </ul>
-        <div>Logged in as <?= $_SESSION["username"]?></div>
+        <!-- <div>Logged in as </div> -->
     </div>
 </body>
 </html>

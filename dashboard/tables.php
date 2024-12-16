@@ -1,3 +1,31 @@
+<?php
+    include "./../db.php";
+
+    $sqlquery = "SELECT * FROM tables";
+    $result = mysqli_query($db, $sqlquery);
+    
+    if ($_SERVER['REQUEST_METHOD'] === "POST") {
+        $id = $_POST['idtables'];
+        $action = $_POST['action'];
+
+        if ($action == 'ditempatin'){
+            $newstatus = 1;
+        }
+        else {
+            $newstatus = 0;
+        }
+
+        $updatsqlequery = "UPDATE tables 
+                    SET isoccupied = $newstatus
+                    WHERE idtables = $id";
+
+        mysqli_query($db, $updatsqlequery);
+        header("Location: tables.php");
+        exit();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,16 +86,46 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                    while ($row = mysqli_fetch_array($result)) {
+                        $status = $row["isoccupied"] ? "Ditempati" : "Kosong";
+                        $buttonclass = $row["isoccupied"] ? "button__kosong" : "button__ditempati";
+                        $buttonaction = $row["isoccupied"] ? "kosong" : "ditempatin";
+                        $buttontext = $row["isoccupied"] ? "Kosong" : "Ditempati";
+                ?>
                 <tr>
+                    <td>
+                        <?php 
+                        echo $row["idtables"];
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                        echo $status;
+                        ?>
+                    </td>
+                    <td>
+                        <form method="POST" action="">
+                            <input type="hidden" name="idtables" value="<?php echo $row['idtables']; ?>">
+                            <input type="hidden" name="action" value="<?php echo $buttonaction; ?>">
+                            <button type="submit" class="<?php echo $buttonclass; ?>">
+                                <?php echo $buttontext; ?>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                <?php } ?>
+                <!-- Placeholder -->
+                <!-- <tr>
                     <td>Meja 01</td>
                     <td>Kosong</td>
                     <td>
-                        <form action="">
+                        <form method="POST" action="">
                             <button class="button__ditempati">Ditempati</button>
                             <button class="button__kosong">Kosong</button>
                         </form>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>

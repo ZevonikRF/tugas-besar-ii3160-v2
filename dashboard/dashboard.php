@@ -1,16 +1,16 @@
 <?php
-    session_start();
-    
-    if (isset($_POST["is_login"])) {
-        header("location: ./../login/login.php"); 
-    }
+    // session_start();
+
+    // if (isset($_SESSION["is_login"])) {
+    //     header("location: ./../login/login.php"); 
+    // }
 
     if (isset($_POST['logout'])) {
-        $_SESSION["is_login"] = false;
-        session_unset();
-        session_destroy(); 
+        // $_SESSION["is_login"] = false;
+        // session_unset();
+        // session_destroy(); 
         header("location: ./../login/login.php"); 
-        exit();
+        // exit();
     }
 ?>
 

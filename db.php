@@ -10,5 +10,5 @@
         echo "Database tidak terkoneksi";
         die("error");
     }
-    echo "Database terkoneksi";
+    // echo "Database terkoneksi";
 ?>
