@@ -1,3 +1,27 @@
+<?php 
+    include "./../db.php";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nama_penunggu = $_POST['penunggu'];
+        
+        $last_queue_query = "SELECT MAX(idqueue) as max_queue FROM queue";
+        $last_queue_result = $db->query($last_queue_query);
+        $last_queue = $last_queue_result->fetch_assoc();
+        
+        $next_queue = ($last_queue['max_queue'] > 0) ? $last_queue['max_queue'] + 1 : 1;
+        
+        $insert_query = "INSERT INTO queue (customerqueuing, iswaiting) VALUES (?, 1)";
+        $stmt = $db->prepare($insert_query);
+        $stmt->bind_param("s", $nama_penunggu);
+        $stmt->execute();
+        $stmt->close();
+        
+        header("Location: queue.php");
+        exit();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +79,7 @@
         <div class="tables__header__title">Tambah Daftar Antrian</div>
     </div>
     <div class="tables__header">
-        <form action="">
+        <form action="" method="POST">
             <input type="text" placeholder="nama penunggu" name="penunggu" required/>
             <div class="button__container">
                 <button class="button__add">Tambah Penunggu</button>

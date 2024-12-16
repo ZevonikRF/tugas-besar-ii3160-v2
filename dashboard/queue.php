@@ -1,3 +1,26 @@
+<?php
+    include "./../db.php";
+
+    if (isset($_POST['selesai'])) {
+        $id_queue = $_POST['selesai'];
+        
+        // Update status iswaiting menjadi 0
+        $update_query = "UPDATE queue SET iswaiting = 0 WHERE idqueue = ?";
+        $stmt = $db->prepare($update_query);
+        $stmt->bind_param("i", $id_queue);
+        $stmt->execute();
+        $stmt->close();
+        
+        // Redirect kembali ke halaman queue
+        header("Location: queue.php");
+        exit();
+    }
+    
+    // Ambil data antrian yang masih menunggu
+    $query = "SELECT * FROM queue WHERE iswaiting = 1 ORDER BY idqueue";
+    $result = $db->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,14 +84,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td>Antrian <?= htmlspecialchars($row['idqueue']) ?></td>
+                        <td><?= htmlspecialchars($row['customerqueuing']) ?></td>
+                        <td>
+                            <form action="" method="POST">
+                                <input type="hidden" name="selesai" value="<?= $row['idqueue'] ?>">
+                                <button class="button__update">Sudah</button>
+                            </form>
+                        </td> 
+                    </tr>
+                <?php endwhile; ?>
+                <!-- Placeholder -->
+                <!-- <tr>
                     <td>Antrian 1</td>
                     <td>Mako Hitachi</td>
                     <td><form action="">
                             <button class="button__update">Sudah</button>
                         </form>
                     </td> 
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <div class="button__container">
